@@ -1,0 +1,88 @@
+name: GitHub Classroom Workflow
+
+on: [push, pull_request]
+
+permissions:
+  checks: write
+  actions: read
+  contents: read
+
+jobs:
+  build:
+    name: Autograding
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          extensions: mbstring
+
+      - name: Install dependencies
+        run: composer install --no-interaction
+
+      # Week 1
+      - name: Week 1: Level 1 tests
+        id: level1
+        uses: education/autograding-command-grader@v1
+        with:
+          test-name: 'Week 1: Level 1'
+          command: 'vendor/bin/phpunit level1/tests/Level1Test.php'
+          timeout: '5'
+          max-score: '1'
+
+      # Week 2
+      - name: Week 2: Level 2 tests
+        id: level2
+        uses: education/autograding-command-grader@v1
+        with:
+          test-name: 'Week 2: Level 2'
+          command: 'vendor/bin/phpunit level2/tests/Level2Test.php'
+          timeout: '5'
+          max-score: '1'
+
+      # Week 3
+      - name: Week 3: Level 3 tests
+        id: level3
+        uses: education/autograding-command-grader@v1
+        with:
+          test-name: 'Week 3: Level 3'
+          command: 'vendor/bin/phpunit level3/tests/Level3Test.php'
+          timeout: '5'
+          max-score: '1'
+
+      # Week 4
+      - name: Week 4: Level 4 tests
+        id: level4
+        uses: education/autograding-command-grader@v1
+        with:
+          test-name: 'Week 4: Level 4'
+          command: 'vendor/bin/phpunit level4/tests/Level4Test.php'
+          timeout: '5'
+          max-score: '1'
+
+      # Week 5
+      - name: Week 5: Level 5 tests
+        id: level5
+        uses: education/autograding-command-grader@v1
+        with:
+          test-name: 'Week 5: Level 5'
+          command: 'vendor/bin/phpunit level5/tests/Level5Test.php'
+          timeout: '5'
+          max-score: '1'
+
+      # This summarizes all the results and displays the total points
+      - name: Autograding Reporter
+        uses: education/autograding-github-action@v1
+        env:
+          # Match these IDs to the 'id' fields in the steps above
+          LEVEL1_RESULTS: "${{steps.level1.outputs.result}}"
+          LEVEL2_RESULTS: "${{steps.level2.outputs.result}}"
+          LEVEL3_RESULTS: "${{steps.level3.outputs.result}}"
+          LEVEL4_RESULTS: "${{steps.level4.outputs.result}}"
+          LEVEL5_RESULTS: "${{steps.level5.outputs.result}}"
+        with:
+          runners: level1,level2,level3,level4,level5

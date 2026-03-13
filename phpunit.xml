@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit bootstrap="tests/bootstrap.php" colors="true">
+    <testsuites>
+        <testsuite name="Level 1"><directory>level1/tests</directory></testsuite>
+        <testsuite name="Level 2"><directory>level2/tests</directory></testsuite>
+        <testsuite name="Level 3"><directory>level3/tests</directory></testsuite>
+        <testsuite name="Level 4"><directory>level4/tests</directory></testsuite>
+        <testsuite name="Level 5"><directory>level5/tests</directory></testsuite>
+    </testsuites>
+</phpunit>
