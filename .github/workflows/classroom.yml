@@ -25,7 +25,7 @@ jobs:
       - name: Install dependencies
         run: composer install --no-interaction
 
-      - name: Week 1: Level 1
+      - name: Level 1
         id: level1
         uses: classroom-resources/autograding-command-grader@v1
         with:
@@ -34,7 +34,7 @@ jobs:
           timeout: '5'
           max-score: '1'
 
-      - name: Week 2: Level 2
+      - name: Level 2
         id: level2
         uses: classroom-resources/autograding-command-grader@v1
         with:
@@ -43,7 +43,7 @@ jobs:
           timeout: '5'
           max-score: '1'
 
-      - name: Week 3: Level 3
+      - name: Level 3
         id: level3
         uses: classroom-resources/autograding-command-grader@v1
         with:
@@ -52,7 +52,7 @@ jobs:
           timeout: '5'
           max-score: '1'
 
-      - name: Week 4: Level 4
+      - name: Level 4
         id: level4
         uses: classroom-resources/autograding-command-grader@v1
         with:
@@ -61,7 +61,7 @@ jobs:
           timeout: '5'
           max-score: '1'
 
-      - name: Week 5: Level 5
+      - name: Level 5
         id: level5
         uses: classroom-resources/autograding-command-grader@v1
         with:
