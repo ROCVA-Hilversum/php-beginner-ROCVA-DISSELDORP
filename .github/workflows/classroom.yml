@@ -268,7 +268,7 @@ jobs:
           LEVEL5_VOEGBoodschappenSAMEN_RESULTS: "${{steps.level5-voegBoodschappenSamen.outputs.result}}"
           LEVEL5_GEBRUIKERSAMENVATTING_RESULTS: "${{steps.level5-gebruikerSamenvatting.outputs.result}}"
         with:
-          runners: >
+          runners: 
             level1-opdracht1_1,
             level1-opdracht1_2,
             level1-opdracht1_3,
