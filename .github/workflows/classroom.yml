@@ -25,58 +25,270 @@ jobs:
       - name: Install dependencies
         run: composer install --no-interaction
 
-      - name: Level 1
-        id: level1
+      # Level 1 – opdrachten 1.1 t/m 1.4
+      - name: Level 1 – Opdracht 1.1
+        id: level1-opdracht1_1
         uses: classroom-resources/autograding-command-grader@v1
         with:
-          test-name: 'Level 1'
-          command: 'vendor/bin/phpunit level1/tests/Level1Test.php'
+          test-name: 'Level 1 – Opdracht 1.1'
+          command: "vendor/bin/phpunit --filter Opdracht1 level1/tests/Level1Test.php"
           timeout: '5'
           max-score: '1'
 
-      - name: Level 2
-        id: level2
+      - name: Level 1 – Opdracht 1.2
+        id: level1-opdracht1_2
         uses: classroom-resources/autograding-command-grader@v1
         with:
-          test-name: 'Level 2'
-          command: 'vendor/bin/phpunit level2/tests/Level2Test.php'
+          test-name: 'Level 1 – Opdracht 1.2'
+          command: "vendor/bin/phpunit --filter Opdracht2 level1/tests/Level1Test.php"
           timeout: '5'
           max-score: '1'
 
-      - name: Level 3
-        id: level3
+      - name: Level 1 – Opdracht 1.3
+        id: level1-opdracht1_3
         uses: classroom-resources/autograding-command-grader@v1
         with:
-          test-name: 'Level 3'
-          command: 'vendor/bin/phpunit level3/tests/Level3Test.php'
+          test-name: 'Level 1 – Opdracht 1.3'
+          command: "vendor/bin/phpunit --filter Opdracht3 level1/tests/Level1Test.php"
           timeout: '5'
           max-score: '1'
 
-      - name: Level 4
-        id: level4
+      - name: Level 1 – Opdracht 1.4
+        id: level1-opdracht1_4
         uses: classroom-resources/autograding-command-grader@v1
         with:
-          test-name: 'Level 4'
-          command: 'vendor/bin/phpunit level4/tests/Level4Test.php'
+          test-name: 'Level 1 – Opdracht 1.4'
+          command: "vendor/bin/phpunit --filter Opdracht4 level1/tests/Level1Test.php"
           timeout: '5'
           max-score: '1'
 
-      - name: Level 5
-        id: level5
+      # Level 2 – opdrachten 2.1 t/m 2.4
+      - name: Level 2 – Opdracht 2.1
+        id: level2-opdracht2_1
         uses: classroom-resources/autograding-command-grader@v1
         with:
-          test-name: 'Level 5'
-          command: 'vendor/bin/phpunit level5/tests/Level5Test.php'
+          test-name: 'Level 2 – Opdracht 2.1'
+          command: "vendor/bin/phpunit --filter Opdracht2_1 level2/tests/Level2Test.php"
+          timeout: '5'
+          max-score: '1'
+
+      - name: Level 2 – Opdracht 2.2
+        id: level2-opdracht2_2
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: 'Level 2 – Opdracht 2.2'
+          command: "vendor/bin/phpunit --filter Opdracht2_2 level2/tests/Level2Test.php"
+          timeout: '5'
+          max-score: '1'
+
+      - name: Level 2 – Opdracht 2.3
+        id: level2-opdracht2_3
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: 'Level 2 – Opdracht 2.3'
+          command: "vendor/bin/phpunit --filter Opdracht2_3 level2/tests/Level2Test.php"
+          timeout: '5'
+          max-score: '1'
+
+      - name: Level 2 – Opdracht 2.4
+        id: level2-opdracht2_4
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: 'Level 2 – Opdracht 2.4'
+          command: "vendor/bin/phpunit --filter Opdracht2_4 level2/tests/Level2Test.php"
+          timeout: '5'
+          max-score: '1'
+
+      # Level 3 – 5 functies/opdrachten
+      - name: Level 3 – SomVanArray
+        id: level3-somVanArray
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: 'Level 3 – SomVanArray'
+          command: "vendor/bin/phpunit --filter testSomVanArray level3/tests/Level3Test.php"
+          timeout: '5'
+          max-score: '1'
+
+      - name: Level 3 – FilterEven
+        id: level3-filterEven
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: 'Level 3 – FilterEven'
+          command: "vendor/bin/phpunit --filter testFilterEven level3/tests/Level3Test.php"
+          timeout: '5'
+          max-score: '1'
+
+      - name: Level 3 – AantalKlinkers
+        id: level3-aantalKlinkers
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: 'Level 3 – AantalKlinkers'
+          command: "vendor/bin/phpunit --filter testAantalKlinkers level3/tests/Level3Test.php"
+          timeout: '5'
+          max-score: '1'
+
+      - name: Level 3 – Tafel
+        id: level3-tafel
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: 'Level 3 – Tafel'
+          command: "vendor/bin/phpunit --filter testTafel level3/tests/Level3Test.php"
+          timeout: '5'
+          max-score: '1'
+
+      - name: Level 3 – Uniek
+        id: level3-uniek
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: 'Level 3 – Uniek'
+          command: "vendor/bin/phpunit --filter testUniek level3/tests/Level3Test.php"
+          timeout: '5'
+          max-score: '1'
+
+      # Level 4 – 5 functies/opdrachten
+      - name: Level 4 – Gemiddelde
+        id: level4-gemiddelde
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: 'Level 4 – Gemiddelde'
+          command: "vendor/bin/phpunit --filter testGemiddelde level4/tests/Level4Test.php"
+          timeout: '5'
+          max-score: '1'
+
+      - name: Level 4 – NormaliseerNaam
+        id: level4-normaliseerNaam
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: 'Level 4 – NormaliseerNaam'
+          command: "vendor/bin/phpunit --filter testNormaliseerNaam level4/tests/Level4Test.php"
+          timeout: '5'
+          max-score: '1'
+
+      - name: Level 4 – CsvVelden
+        id: level4-csvVelden
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: 'Level 4 – CsvVelden'
+          command: "vendor/bin/phpunit --filter testCsvVelden level4/tests/Level4Test.php"
+          timeout: '5'
+          max-score: '1'
+
+      - name: Level 4 – Statistiek
+        id: level4-statistiek
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: 'Level 4 – Statistiek'
+          command: "vendor/bin/phpunit --filter testStatistiek level4/tests/Level4Test.php"
+          timeout: '5'
+          max-score: '1'
+
+      - name: Level 4 – WachtwoordScore
+        id: level4-wachtwoordScore
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: 'Level 4 – WachtwoordScore'
+          command: "vendor/bin/phpunit --filter testWachtwoordScore level4/tests/Level4Test.php"
+          timeout: '5'
+          max-score: '1'
+
+      # Level 5 – 5 functies/opdrachten
+      - name: Level 5 – InverteerMap
+        id: level5-inverteerMap
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: 'Level 5 – InverteerMap'
+          command: "vendor/bin/phpunit --filter testInverteerMap level5/tests/Level5Test.php"
+          timeout: '5'
+          max-score: '1'
+
+      - name: Level 5 – GroepeerOpEersteLetter
+        id: level5-groepeerOpEersteLetter
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: 'Level 5 – GroepeerOpEersteLetter'
+          command: "vendor/bin/phpunit --filter testGroepeerOpEersteLetter level5/tests/Level5Test.php"
+          timeout: '5'
+          max-score: '1'
+
+      - name: Level 5 – WoordFrequenties
+        id: level5-woordFrequenties
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: 'Level 5 – WoordFrequenties'
+          command: "vendor/bin/phpunit --filter testWoordFrequenties level5/tests/Level5Test.php"
+          timeout: '5'
+          max-score: '1'
+
+      - name: Level 5 – VoegBoodschappenSamen
+        id: level5-voegBoodschappenSamen
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: 'Level 5 – VoegBoodschappenSamen'
+          command: "vendor/bin/phpunit --filter testVoegBoodschappenSamen level5/tests/Level5Test.php"
+          timeout: '5'
+          max-score: '1'
+
+      - name: Level 5 – GebruikerSamenvatting
+        id: level5-gebruikerSamenvatting
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: 'Level 5 – GebruikerSamenvatting'
+          command: "vendor/bin/phpunit --filter testGebruikerSamenvatting level5/tests/Level5Test.php"
           timeout: '5'
           max-score: '1'
 
       - name: Autograding Reporter
         uses: classroom-resources/autograding-grading-reporter@v1
         env:
-          LEVEL1_RESULTS: "${{steps.level1.outputs.result}}"
-          LEVEL2_RESULTS: "${{steps.level2.outputs.result}}"
-          LEVEL3_RESULTS: "${{steps.level3.outputs.result}}"
-          LEVEL4_RESULTS: "${{steps.level4.outputs.result}}"
-          LEVEL5_RESULTS: "${{steps.level5.outputs.result}}"
+          LEVEL1_OPDRACHT1_1_RESULTS: "${{steps.level1-opdracht1_1.outputs.result}}"
+          LEVEL1_OPDRACHT1_2_RESULTS: "${{steps.level1-opdracht1_2.outputs.result}}"
+          LEVEL1_OPDRACHT1_3_RESULTS: "${{steps.level1-opdracht1_3.outputs.result}}"
+          LEVEL1_OPDRACHT1_4_RESULTS: "${{steps.level1-opdracht1_4.outputs.result}}"
+
+          LEVEL2_OPDRACHT2_1_RESULTS: "${{steps.level2-opdracht2_1.outputs.result}}"
+          LEVEL2_OPDRACHT2_2_RESULTS: "${{steps.level2-opdracht2_2.outputs.result}}"
+          LEVEL2_OPDRACHT2_3_RESULTS: "${{steps.level2-opdracht2_3.outputs.result}}"
+          LEVEL2_OPDRACHT2_4_RESULTS: "${{steps.level2-opdracht2_4.outputs.result}}"
+
+          LEVEL3_SOMVANARRAY_RESULTS: "${{steps.level3-somVanArray.outputs.result}}"
+          LEVEL3_FILTEREVEN_RESULTS: "${{steps.level3-filterEven.outputs.result}}"
+          LEVEL3_AANTALKLINKERS_RESULTS: "${{steps.level3-aantalKlinkers.outputs.result}}"
+          LEVEL3_TAFEL_RESULTS: "${{steps.level3-tafel.outputs.result}}"
+          LEVEL3_UNIEK_RESULTS: "${{steps.level3-uniek.outputs.result}}"
+
+          LEVEL4_GEMIDDELDE_RESULTS: "${{steps.level4-gemiddelde.outputs.result}}"
+          LEVEL4_NORMALISEERNAAM_RESULTS: "${{steps.level4-normaliseerNaam.outputs.result}}"
+          LEVEL4_CSVVELDEN_RESULTS: "${{steps.level4-csvVelden.outputs.result}}"
+          LEVEL4_STATISTIEK_RESULTS: "${{steps.level4-statistiek.outputs.result}}"
+          LEVEL4_WACHTWOORDSCORE_RESULTS: "${{steps.level4-wachtwoordScore.outputs.result}}"
+
+          LEVEL5_INVERTEERMAP_RESULTS: "${{steps.level5-inverteerMap.outputs.result}}"
+          LEVEL5_GROEPEEROPEERSTELETTER_RESULTS: "${{steps.level5-groepeerOpEersteLetter.outputs.result}}"
+          LEVEL5_WOORDFREQUENTIES_RESULTS: "${{steps.level5-woordFrequenties.outputs.result}}"
+          LEVEL5_VOEGBoodschappenSAMEN_RESULTS: "${{steps.level5-voegBoodschappenSamen.outputs.result}}"
+          LEVEL5_GEBRUIKERSAMENVATTING_RESULTS: "${{steps.level5-gebruikerSamenvatting.outputs.result}}"
         with:
-          runners: level1,level2,level3,level4,level5
+          runners: >
+            level1-opdracht1_1,
+            level1-opdracht1_2,
+            level1-opdracht1_3,
+            level1-opdracht1_4,
+            level2-opdracht2_1,
+            level2-opdracht2_2,
+            level2-opdracht2_3,
+            level2-opdracht2_4,
+            level3-somVanArray,
+            level3-filterEven,
+            level3-aantalKlinkers,
+            level3-tafel,
+            level3-uniek,
+            level4-gemiddelde,
+            level4-normaliseerNaam,
+            level4-csvVelden,
+            level4-statistiek,
+            level4-wachtwoordScore,
+            level5-inverteerMap,
+            level5-groepeerOpEersteLetter,
+            level5-woordFrequenties,
+            level5-voegBoodschappenSamen,
+            level5-gebruikerSamenvatting
