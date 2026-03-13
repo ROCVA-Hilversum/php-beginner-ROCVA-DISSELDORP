@@ -73,16 +73,3 @@ jobs:
           command: 'vendor/bin/phpunit level5/tests/Level5Test.php'
           timeout: '5'
           max-score: '1'
-
-      # This summarizes all the results and displays the total points
-      - name: Autograding Reporter
-        uses: education/autograding-github-action@v1
-        env:
-          # Match these IDs to the 'id' fields in the steps above
-          LEVEL1_RESULTS: "${{steps.level1.outputs.result}}"
-          LEVEL2_RESULTS: "${{steps.level2.outputs.result}}"
-          LEVEL3_RESULTS: "${{steps.level3.outputs.result}}"
-          LEVEL4_RESULTS: "${{steps.level4.outputs.result}}"
-          LEVEL5_RESULTS: "${{steps.level5.outputs.result}}"
-        with:
-          runners: level1,level2,level3,level4,level5
