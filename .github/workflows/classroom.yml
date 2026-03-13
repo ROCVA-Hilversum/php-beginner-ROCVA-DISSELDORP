@@ -268,27 +268,4 @@ jobs:
           LEVEL5_VOEGBoodschappenSAMEN_RESULTS: "${{steps.level5-voegBoodschappenSamen.outputs.result}}"
           LEVEL5_GEBRUIKERSAMENVATTING_RESULTS: "${{steps.level5-gebruikerSamenvatting.outputs.result}}"
         with:
-          runners: 
-            level1-opdracht1_1,
-            level1-opdracht1_2,
-            level1-opdracht1_3,
-            level1-opdracht1_4,
-            level2-opdracht2_1,
-            level2-opdracht2_2,
-            level2-opdracht2_3,
-            level2-opdracht2_4,
-            level3-somVanArray,
-            level3-filterEven,
-            level3-aantalKlinkers,
-            level3-tafel,
-            level3-uniek,
-            level4-gemiddelde,
-            level4-normaliseerNaam,
-            level4-csvVelden,
-            level4-statistiek,
-            level4-wachtwoordScore,
-            level5-inverteerMap,
-            level5-groepeerOpEersteLetter,
-            level5-woordFrequenties,
-            level5-voegBoodschappenSamen,
-            level5-gebruikerSamenvatting
+          runners: level1-opdracht1_1,level1-opdracht1_2,level1-opdracht1_3,level1-opdracht1_4,level2-opdracht2_1,level2-opdracht2_2,level2-opdracht2_3,level2-opdracht2_4,level3-somVanArray,level3-filterEven,level3-aantalKlinkers,level3-tafel,level3-uniek,level4-gemiddelde,level4-normaliseerNaam,level4-csvVelden,level4-statistiek,level4-wachtwoordScore,level5-inverteerMap,level5-groepeerOpEersteLetter,level5-woordFrequenties,level5-voegBoodschappenSamen,level5-gebruikerSamenvatting
