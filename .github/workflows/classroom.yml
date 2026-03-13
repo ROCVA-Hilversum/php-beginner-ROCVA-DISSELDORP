@@ -1,6 +1,8 @@
-name: GitHub Classroom Workflow
+name: Autograding Tests
 
-on: [push, pull_request]
+on:
+  - push
+  - workflow_dispatch
 
 permissions:
   checks: write
@@ -8,8 +10,7 @@ permissions:
   contents: read
 
 jobs:
-  build:
-    name: Autograding
+  run-tests:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -24,52 +25,58 @@ jobs:
       - name: Install dependencies
         run: composer install --no-interaction
 
-      # Week 1
-      - name: Level 1 tests
+      - name: Week 1: Level 1
         id: level1
-        uses: education/autograding-command-grader@v1
+        uses: classroom-resources/autograding-command-grader@v1
         with:
-          test-name: 'Week 1: Level 1'
+          test-name: 'Level 1'
           command: 'vendor/bin/phpunit level1/tests/Level1Test.php'
           timeout: '5'
           max-score: '1'
 
-      # Week 2
-      - name: Level 2 tests
+      - name: Week 2: Level 2
         id: level2
-        uses: education/autograding-command-grader@v1
+        uses: classroom-resources/autograding-command-grader@v1
         with:
-          test-name: 'Week 2: Level 2'
+          test-name: 'Level 2'
           command: 'vendor/bin/phpunit level2/tests/Level2Test.php'
           timeout: '5'
           max-score: '1'
 
-      # Week 3
-      - name: Level 3 tests
+      - name: Week 3: Level 3
         id: level3
-        uses: education/autograding-command-grader@v1
+        uses: classroom-resources/autograding-command-grader@v1
         with:
-          test-name: 'Week 3: Level 3'
+          test-name: 'Level 3'
           command: 'vendor/bin/phpunit level3/tests/Level3Test.php'
           timeout: '5'
           max-score: '1'
 
-      # Week 4
-      - name: Level 4 tests
+      - name: Week 4: Level 4
         id: level4
-        uses: education/autograding-command-grader@v1
+        uses: classroom-resources/autograding-command-grader@v1
         with:
-          test-name: 'Week 4: Level 4'
+          test-name: 'Level 4'
           command: 'vendor/bin/phpunit level4/tests/Level4Test.php'
           timeout: '5'
           max-score: '1'
 
-      # Week 5
-      - name: Level 5 tests
+      - name: Week 5: Level 5
         id: level5
-        uses: education/autograding-command-grader@v1
+        uses: classroom-resources/autograding-command-grader@v1
         with:
-          test-name: 'Week 5: Level 5'
+          test-name: 'Level 5'
           command: 'vendor/bin/phpunit level5/tests/Level5Test.php'
           timeout: '5'
           max-score: '1'
+
+      - name: Autograding Reporter
+        uses: classroom-resources/autograding-grading-reporter@v1
+        env:
+          LEVEL1_RESULTS: "${{steps.level1.outputs.result}}"
+          LEVEL2_RESULTS: "${{steps.level2.outputs.result}}"
+          LEVEL3_RESULTS: "${{steps.level3.outputs.result}}"
+          LEVEL4_RESULTS: "${{steps.level4.outputs.result}}"
+          LEVEL5_RESULTS: "${{steps.level5.outputs.result}}"
+        with:
+          runners: level1,level2,level3,level4,level5
